@@ -1,0 +1,505 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Palette Mentor</title>
+
+    <!-- CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            🎨 Palette Mentor
+        </div>
+
+        <nav>
+            <a href="#color-helper">Color Helper</a>
+            <a href="#painting-review">Painting Review</a>
+            <a href="#artists">Artists</a>
+        </nav>
+
+    </header>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main>
+
+
+        <!-- ================= HERO SECTION ================= -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <p class="eyebrow">
+                    YOUR DIGITAL ART ASSISTANT
+                </p>
+
+                <h1>
+                    Confused about a colour?
+                    <span>Let's fix it.</span>
+                </h1>
+
+                <p class="hero-text">
+                    Choose a colour from your palette, tell us what
+                    feels wrong, and get simple contrast suggestions.
+                    You can also upload your painting for a
+                    professional artist review.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#color-helper" class="btn primary">
+                        Try Color Helper
+                    </a>
+
+                    <a href="#painting-review" class="btn secondary">
+                        Review My Painting
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Decorative painting -->
+
+            <div class="hero-art">
+
+                <div class="paint-card">
+
+                    <div class="paint-circle circle-one"></div>
+
+                    <div class="paint-circle circle-two"></div>
+
+                    <div class="paint-circle circle-three"></div>
+
+                    <div class="brush">
+                        🖌️
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= COLOR HELPER ================= -->
+
+        <section id="color-helper" class="section">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">
+                    01 — COLOR HELPER
+                </p>
+
+                <h2>
+                    Find a better contrast
+                </h2>
+
+                <p>
+                    Pick the colour you are unsure about
+                    and describe your doubt.
+                </p>
+
+            </div>
+
+
+            <div class="helper-grid">
+
+
+                <!-- Colour input -->
+
+                <div class="panel">
+
+                    <label for="colorPicker">
+                        Choose your colour
+                    </label>
+
+                    <div class="color-input-row">
+
+                        <input
+                            type="color"
+                            id="colorPicker"
+                            value="#D97757"
+                        >
+
+                        <input
+                            type="text"
+                            id="hexInput"
+                            value="#D97757"
+                            maxlength="7"
+                        >
+
+                    </div>
+
+
+                    <!-- User's doubt -->
+
+                    <label for="doubt">
+                        What is your doubt?
+                    </label>
+
+                    <select id="doubt">
+
+                        <option value="background">
+                            I need a contrasting background
+                        </option>
+
+                        <option value="shadow">
+                            I need a shadow colour
+                        </option>
+
+                        <option value="highlight">
+                            I need a highlight colour
+                        </option>
+
+                        <option value="outline">
+                            I need an outline/detail colour
+                        </option>
+
+                    </select>
+
+
+                    <button
+                        class="btn primary full"
+                        id="suggestBtn"
+                    >
+                        Suggest Contrast
+                    </button>
+
+                </div>
+
+
+
+                <!-- Result -->
+
+                <div
+                    class="result-panel"
+                    id="colorResult"
+                >
+
+                    <div class="result-placeholder">
+
+                        <span>🎨</span>
+
+                        <h3>
+                            Your suggestions will appear here
+                        </h3>
+
+                        <p>
+                            Choose a colour and click
+                            "Suggest Contrast".
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= PAINTING REVIEW ================= -->
+
+        <section
+            id="painting-review"
+            class="section alternate"
+        >
+
+            <div class="section-heading">
+
+                <p class="eyebrow">
+                    02 — PAINTING REVIEW
+                </p>
+
+                <h2>
+                    Show your painting to an artist
+                </h2>
+
+                <p>
+                    Upload an image and explain what you think
+                    went wrong. In the full version, this request
+                    can be sent to a professional artist.
+                </p>
+
+            </div>
+
+
+            <div class="upload-card">
+
+
+                <!-- Image upload area -->
+
+                <div
+                    class="upload-area"
+                    id="dropArea"
+                >
+
+                    <input
+                        type="file"
+                        id="paintingInput"
+                        accept="image/*"
+                        hidden
+                    >
+
+
+                    <div id="uploadContent">
+
+                        <div class="upload-icon">
+                            🖼️
+                        </div>
+
+                        <h3>
+                            Upload your painting
+                        </h3>
+
+                        <p>
+                            PNG, JPG or JPEG
+                        </p>
+
+                        <button
+                            class="btn secondary"
+                            id="chooseImage"
+                        >
+                            Choose Image
+                        </button>
+
+                    </div>
+
+
+                    <!-- Uploaded image preview -->
+
+                    <img
+                        id="preview"
+                        alt="Painting preview"
+                    >
+
+                </div>
+
+
+
+                <!-- Review form -->
+
+                <div class="review-form">
+
+                    <label for="problem">
+                        What do you want help with?
+                    </label>
+
+                    <textarea
+                        id="problem"
+                        rows="6"
+                        placeholder="Example: The skin tone looks too dull and the background feels too strong."
+                    ></textarea>
+
+
+                    <label for="reviewType">
+                        Who should review it?
+                    </label>
+
+                    <select id="reviewType">
+
+                        <option>
+                            Professional Artist
+                        </option>
+
+                        <option>
+                            Colour Specialist
+                        </option>
+
+                        <option>
+                            Portrait Artist
+                        </option>
+
+                        <option>
+                            Landscape Artist
+                        </option>
+
+                    </select>
+
+
+                    <button
+                        class="btn primary full"
+                        id="submitReview"
+                    >
+                        Request Artist Review
+                    </button>
+
+
+                    <p
+                        class="form-message"
+                        id="formMessage"
+                    ></p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================= ARTIST SECTION ================= -->
+
+        <section id="artists" class="section">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">
+                    03 — ARTIST SUPPORT
+                </p>
+
+                <h2>
+                    Connect with a professional
+                </h2>
+
+                <p>
+                    Example artist cards for the prototype.
+                    Later, these can come from a database.
+                </p>
+
+            </div>
+
+
+            <div class="artist-grid">
+
+
+                <!-- Artist 1 -->
+
+                <article class="artist-card">
+
+                    <div class="avatar">
+                        👩🏻‍🎨
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Ananya Rao
+                        </h3>
+
+                        <p>
+                            Watercolour & Colour Theory
+                        </p>
+
+                        <span>
+                            ★★★★★ 4.9
+                        </span>
+
+                    </div>
+
+                    <button class="small-btn">
+                        Request Review
+                    </button>
+
+                </article>
+
+
+
+                <!-- Artist 2 -->
+
+                <article class="artist-card">
+
+                    <div class="avatar">
+                        👨🏽‍🎨
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Arjun Mehta
+                        </h3>
+
+                        <p>
+                            Portrait & Acrylic Painting
+                        </p>
+
+                        <span>
+                            ★★★★★ 4.8
+                        </span>
+
+                    </div>
+
+                    <button class="small-btn">
+                        Request Review
+                    </button>
+
+                </article>
+
+
+
+                <!-- Artist 3 -->
+
+                <article class="artist-card">
+
+                    <div class="avatar">
+                        👩🏾‍🎨
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Meera Sen
+                        </h3>
+
+                        <p>
+                            Digital Art & Colour Grading
+                        </p>
+
+                        <span>
+                            ★★★★★ 5.0
+                        </span>
+
+                    </div>
+
+                    <button class="small-btn">
+                        Request Review
+                    </button>
+
+                </article>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+            Palette Mentor — Learn colours, improve your art. 🎨
+        </p>
+
+    </footer>
+
+
+    <!-- JavaScript file -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+```
